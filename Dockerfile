@@ -14,9 +14,9 @@ RUN bundle install --system && \
 
 COPY . /devdocs
 
-RUN thor docs:download --all && \
-    thor assets:compile && \
-    rm -rf /tmp
+RUN thor docs:download --all
+RUN thor assets:compile
+RUN rm -rf /tmp
 
 EXPOSE 9292
 CMD rackup -o 0.0.0.0
